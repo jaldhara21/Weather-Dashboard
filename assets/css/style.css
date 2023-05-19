@@ -1,0 +1,21 @@
+
+:root {
+    --border-radius: 0.4rem;
+
+}
+* {
+    box-sizing: border-box;
+}
+/* Given style to header */
+.hero {
+    padding:3% 4%;
+    color: blue;
+}
+.app-title {
+    font-size: 30px;
+    color: rgb(72, 59, 218);
+    background-color: rgb(178, 178, 245);
+    padding: 10px;
+    display: inline-block;
+    border-radius: var(--border-radius);
+}
