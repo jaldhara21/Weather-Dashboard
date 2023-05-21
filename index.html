@@ -25,37 +25,60 @@
       </h1>
     </header>
 <!--Added main folder inside h3, input,button element -->
-    <main class="flex-row justify-space-between">
-      <div class="col-12 col-sm-12 col-md-4 float-left"></div>
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search for a city</h3>
-        <div class="card-body" id="user-form">
-          <input type="text" id="myInput" placeholder="City Name...." />
-          <button class="btn" id="searchBtn">Search</button>
-        </div>
+<div class="row">
+  <div class="col-3 bg-light pb-2 pt-3" id="searchResults">
+      <div class="row">
+          <div class="col-12">
+              <h4>Search for a City:</h4>
+          </div>
       </div>
-<!--Added search history-->
-      <div class="card history">
-        <h3 class="card-header text-uppercase">Search History</h3>
-      </div>
-    </div>
-<!--Added current weather-->
-    <div class="col-12 col-sm-12 col-md-8 float-right">
-      <div>
-        <h2 class="subtitle text-uppercase bg-light">Current Weather</h2>
-        <div class="city"></div>
-      </div>
-<!--Added 5 day forecast-->
-      <div>
-        <h2 class="subtitle text-uppercase bg-light">5 Day forecast</h2>
-        <div class="five-day"></div>
-      </div>
-    </div>
 
-      <button>Search</button>
-    </main>
-    <!--Added script cdnjs libraries jquery file and js file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <div class="row">
+          <div class="col-12">
+              <div class="input-group">
+                  <input class="form-control" type="text" id="enterCity"
+                      placeholder="Enter city to view weather"><button type="button" id="searchBtn"
+                      class="btn btn-primary"><i class="fas fa-search"></i></button>
+              </div>
+          </div>
+      </div>
+
+      <div class="row mt-3">
+          <div class="col-12">
+
+              <ul id="searchHistory" class="list-group">
+                  <!-- append li here li class="list-group-item"-->
+              </ul>
+
+          </div>
+      </div>
+  </div>
+
+  <div id="weatherContent" class="col-9 pb-4 pt-4">
+      <div class="row pb-3 mr-2 ml-2">
+          <div id="cityDetail" class="col-12 border rounded px-3 py-3">
+              <!-- display currentCity here text with p-->
+          </div>
+      </div>
+
+      <div class="row pb-2 pt-1">
+          <div class="col-12 ml-2">
+              <h3>5-Day Forecast:</h3>
+          </div>
+      </div>
+
+      <div id="fiveDay" class="row pl-2">
+          <!-- add 5 day forecast info here -->
+      </div>
+
+  </div>
+</div>
+
+</div>
+
+    <!-- jquery link and Day.js link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
