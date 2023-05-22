@@ -87,21 +87,21 @@ function futureCondition(lat, lon) {
 
   $.ajax({
     url: futureURL,
-    method: "GET",
+    method: "GET"
   }).then(function (futureResponse) {
     console.log(futureResponse);
     $("#fiveDay").empty();
 
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 5; i++) {
       var cityInfo = {
-        date: futureResponse.daily[i].dt,
-        icon: futureResponse.daily[i].weather[0].icon,
-        temp: futureResponse.daily[i].temp.day,
-        humidity: futureResponse.daily[i].humidity,
+        date: futureResponse.list[i].dt,
+        icon: futureResponse.list[i].weather[0].icon,
+        temp: futureResponse.list[i].main.temp,
+        humidity: futureResponse.list[i].main.humidity,
       };
 
       var currDate = dayjs.unix(cityInfo.date).format("MM/DD/YYYY");
-      var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+      var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
 
       // displays the current date
       // an icon representation of weather conditions
@@ -137,7 +137,7 @@ $("#searchBtn").on("click", function (event) {
             <li class="list-group-item">${city}</li>
             `);
     $("#searchHistory").append(searchedCity);
-  }
+  };
 
   localStorage.setItem("city", JSON.stringify(searchHistoryList));
   console.log(searchHistoryList);
