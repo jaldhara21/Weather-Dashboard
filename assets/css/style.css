@@ -1,27 +1,29 @@
-
 :root {
     --border-radius: 0.4rem;
-    --dark: #6236f4;
+    --dark: #ac96f5;
 
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Lobster', cursive;
     color: var(--dark);
     line-height: 1.5;
     font-size: 16px;
 }
-  
+
 /* Set style to header */
 .hero {
-    padding:3% 4%;
+    padding: 3% 4%;
     color: blue;
 }
+
 .app-title {
     font-size: 30px;
     color: rgb(72, 59, 218);
@@ -30,16 +32,17 @@ body {
     display: inline-block;
     border-radius: var(--border-radius);
 }
+
 #cityDetail,
 #uvIndexColor,
 li {
-    color: #4D4F53!important;
+    color: #4D4F53 !important;
 }
 
 #searchResults,
 #cityDetail,
 .card {
-    background-color: #5A6C73!important;
+    background-color: #819bf0 !important;
 }
 
 #searchResults {
@@ -47,27 +50,34 @@ li {
 }
 
 #fiveDay .card {
-    border: 1px solid white!important;
+    border: 1px solid rgb(85, 6, 244) !important;
 }
 
 #searchHistory li {
-    background-color: #97A6A4;
-    color: #f8f8ff!important;
+    background-color: #9b0ded;
+    color: #c9c9eb !important;
 }
 
 p {
-    color: #D9B779;
+    color: #6303e9;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Raleway', sans-serif;
 }
 
-h2, h3, h4, h5 {
-    color: #f8f8ff;
+h2,
+h3,
+h4,
+h5 {
+    color: #030384;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #97A6A4;
+    background-color: #5050f5;
 }
