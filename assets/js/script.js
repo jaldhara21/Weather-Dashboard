@@ -3,7 +3,7 @@ var apiKey = "1afd2f6cc2b4cbf0647fcaf08fe8fb6c";
 var today = dayjs().format('YYYY-MM-DD');
 var searchHistoryList = [];
 
-// function for current condition
+// function for current condition and create variable for url with parameter
 function currentCondition(city) {
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
