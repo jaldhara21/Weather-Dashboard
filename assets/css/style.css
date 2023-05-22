@@ -22,17 +22,17 @@ body {
 .hero {
     padding: 3% 4%;
     color: blue;
+    background-color: #5555cb;
 }
 
 .app-title {
-    font-size: 30px;
     color: rgb(72, 59, 218);
-    background-color: rgb(178, 178, 245);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,197,246,1) 27%);
     padding: 10px;
-    display: inline-block;
     border-radius: var(--border-radius);
+    text-align: center;
 }
-
+ 
 #cityDetail,
 #uvIndexColor,
 li {
@@ -78,6 +78,6 @@ h5 {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lobster', cursive;
     background-color: #5050f5;
 }
