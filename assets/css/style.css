@@ -4,10 +4,6 @@
 
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     background-repeat: no-repeat;
     background-size: cover;
@@ -75,9 +71,4 @@ h3,
 h4,
 h5 {
     color: #030384;
-}
-
-body {
-    font-family: 'Lobster', cursive;
-    background-color: #5050f5;
 }
