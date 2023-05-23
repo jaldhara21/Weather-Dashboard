@@ -19,6 +19,8 @@ function currentCondition(city) {
     var iconCode = cityWeatherResponse.weather[0].icon;
     var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
 
+    
+    
     // WHEN I view current weather conditions for that city
     // THEN I am presented with the city name
     // the date
@@ -32,7 +34,7 @@ function currentCondition(city) {
             </h2>
             <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
             <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
-            <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
+            <p>Humidity: ${cityWeatherResponse.main.humidity} \%</p>
             
         `);
 
@@ -82,8 +84,10 @@ function currentCondition(city) {
   });
 }
 function futureCondition(lat, lon) {
-  // Presented with a 5-day forecast using openweathermap API key with all required parameter used
-  var futureURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=40.71&lon=-74.006&&units=imperial&exclude=current,minutely,hourly,alerts&appid=a0650623cb879c782b6f4b4a1202e988'
+  // Presented with a 5-day forecast using openweathermap API key
+  var futureURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=40.71&lon=-74.006&appid=a0650623cb879c782b6f4b4a1202e988'
+
+
 
   $.ajax({
     url: futureURL,
@@ -92,7 +96,7 @@ function futureCondition(lat, lon) {
     console.log(futureResponse);
     $("#fiveDay").empty();
 
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i < 6; i++) {
       var cityInfo = {
         date: futureResponse.list[i].dt,
         icon: futureResponse.list[i].weather[0].icon,
@@ -109,21 +113,22 @@ function futureCondition(lat, lon) {
       // display the city humidity
       var futureCard = $(`
                 <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
+                    <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;">
                         <div class="card-body">
                             <h5>${currDate}</h5>
                             <p>${iconURL}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
-                            <p>Humidity: ${cityInfo.humidity}\%</p>
+                            <p>Humidity: ${cityInfo.humidity} \%</p>
                         </div>
                     </div>
-                <div>
+                </div>
             `);
 
       $("#fiveDay").append(futureCard);
     }
   });
 }
+      
 
 // add on click event listener
 $("#searchBtn").on("click", function (event) {
