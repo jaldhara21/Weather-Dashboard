@@ -26,8 +26,7 @@ This project aims to create a Weather Dashboard.Third-party APIs allow developer
     </ol>
   
 ## Deployed Page
-[
-](https://jaldhara21.github.io/Weather-Dashboard/)
+[(https://jaldhara21.github.io/Weather-Dashboard/)]
 
 ## Screen shot
 <img width="1170" alt="Screen Shot 2023-05-24 at 11 50 25 AM" src="https://github.com/jaldhara21/Weather-Dashboard/assets/129098874/a5b16986-6a6d-44b0-a8b8-f0556084a173">
