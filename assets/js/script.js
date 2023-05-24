@@ -11,7 +11,7 @@ function currentCondition(city) {
     url: queryURL,
     method: "GET",
   }).then(function (cityWeatherResponse) {
-    console.log(cityWeatherResponse);
+    console.log("city weather response", cityWeatherResponse);
 
     $("#weatherContent").css("display", "block");
     $("#cityDetail").empty();
@@ -19,8 +19,9 @@ function currentCondition(city) {
     var iconCode = cityWeatherResponse.weather[0].icon;
     var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
 
-    
-    
+    var lat = cityWeatherResponse.coord.lat;
+    var lon = cityWeatherResponse.coord.lon;
+    futureCondition(lat, lon);
     // WHEN I view current weather conditions for that city
     // THEN I am presented with the city name
     // the date
@@ -39,64 +40,22 @@ function currentCondition(city) {
         `);
 
     $("#cityDetail").append(currentCity);
-    var lat = cityWeatherResponse.coord.lat;
-    var lon = cityWeatherResponse.coord.lon;
-    var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
-    $.ajax({
-      url: uviQueryURL,
-      method: "GET",
-    }).then(function (uviResponse) {
-      console.log(uviResponse);
-
-      var uvIndex = uviResponse.value;
-      var uvIndexP = $(`
-                <p>UV Index: 
-                    <span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span>
-                </p>
-            `);
-
-      $("#cityDetail").append(uvIndexP);
-
-      futureCondition(lat, lon);
-
-      // WHEN I view the UV index
-      // THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-      // 0-2 green#3EA72D, 3-5 yellow#FFF300, 6-7 orange#F18B00, 8-10 red#E53210, 11+violet#B567A4
-      if (uvIndex >= 0 && uvIndex <= 2) {
-        $("#uvIndexColor")
-          .css("background-color", "#3EA72D")
-          .css("color", "white");
-      } else if (uvIndex >= 3 && uvIndex <= 5) {
-        $("#uvIndexColor").css("background-color", "#FFF300");
-      } else if (uvIndex >= 6 && uvIndex <= 7) {
-        $("#uvIndexColor").css("background-color", "#F18B00");
-      } else if (uvIndex >= 8 && uvIndex <= 10) {
-        $("#uvIndexColor")
-          .css("background-color", "#E53210")
-          .css("color", "white");
-      } else {
-        $("#uvIndexColor")
-          .css("background-color", "#B567A4")
-          .css("color", "white");
-      }
-    });
   });
 }
+
 function futureCondition(lat, lon) {
+  console.log("futurecondition", lat, lon);
   // Presented with a 5-day forecast using openweathermap API key
-  var futureURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=40.71&lon=-74.006&appid=a0650623cb879c782b6f4b4a1202e988'
-
-
+  var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=a0650623cb879c782b6f4b4a1202e988`;
 
   $.ajax({
     url: futureURL,
-    method: "GET"
+    method: "GET",
   }).then(function (futureResponse) {
     console.log(futureResponse);
     $("#fiveDay").empty();
 
-    for (let i = 1; i < 6; i++) {
+    for (let i = 0; i < futureResponse.list.length; i += 8) {
       var cityInfo = {
         date: futureResponse.list[i].dt,
         icon: futureResponse.list[i].weather[0].icon,
@@ -128,7 +87,6 @@ function futureCondition(lat, lon) {
     }
   });
 }
-      
 
 // add on click event listener
 $("#searchBtn").on("click", function (event) {
@@ -142,7 +100,7 @@ $("#searchBtn").on("click", function (event) {
             <li class="list-group-item">${city}</li>
             `);
     $("#searchHistory").append(searchedCity);
-  };
+  }
 
   localStorage.setItem("city", JSON.stringify(searchHistoryList));
   console.log(searchHistoryList);
