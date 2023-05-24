@@ -12,7 +12,7 @@ function currentCondition(city) {
     method: "GET",
   }).then(function (cityWeatherResponse) {
     console.log("city weather response", cityWeatherResponse);
-
+    //Create CSS "display" property of the element and value is set to "block"
     $("#weatherContent").css("display", "block");
     $("#cityDetail").empty();
 
@@ -42,10 +42,10 @@ function currentCondition(city) {
     $("#cityDetail").append(currentCity);
   });
 }
-
+// Function for future condition
 function futureCondition(lat, lon) {
   console.log("futurecondition", lat, lon);
-  // Presented with a 5-day forecast using openweathermap API key
+  // Presented with a 5-day forecast using openweathermap API key and parameter
   var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=a0650623cb879c782b6f4b4a1202e988`;
 
   $.ajax({
@@ -54,7 +54,7 @@ function futureCondition(lat, lon) {
   }).then(function (futureResponse) {
     console.log(futureResponse);
     $("#fiveDay").empty();
-
+    //Create a for loop , array and inside the loop new object for city info
     for (let i = 0; i < futureResponse.list.length; i += 8) {
       var cityInfo = {
         date: futureResponse.list[i].dt,

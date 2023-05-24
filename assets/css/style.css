@@ -1,7 +1,6 @@
 :root {
     --border-radius: 0.4rem;
     --dark: #ac96f5;
-
 }
 
 body {
@@ -23,12 +22,12 @@ body {
 
 .app-title {
     color: rgb(72, 59, 218);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,197,246,1) 27%);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(78, 197, 246, 1) 27%);
     padding: 10px;
     border-radius: var(--border-radius);
     text-align: center;
 }
- 
+
 #cityDetail,
 #uvIndexColor,
 li {
